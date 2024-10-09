@@ -3,9 +3,9 @@
 _“The aim of medicine is to prevent disease and prolong life; the ideal of medicine is to eliminate the need of a physician.” - William J. Mayo, American Physician and surgeon and one of the 7 founders of the Mayo Clinic._
 
 ## Motivation
-The cost of healthcare has been on the rise in this day and age, and your health has been the most valuable asset you own. Eating healthy and having a good sleep schedule is effective for preventing illness, but as people get busier, it has become more difficult to maintain your health. That is why it is essential for people to take dietary supplements. But how do people know what the best supplements are for them? They can ask a doctor, but the doctor might miss some information and excluding procedures or tests, you’ll have to pay an average of $80-$170 across the U.S for a doctor's visit. 
+The cost of healthcare has been on the rise in this day and age, and your health has been the most valuable asset you own. Eating healthy and having a good sleep schedule is effective for preventing illness, but as people get busier, it has become more difficult to maintain your health. That is why it is essential for people to take dietary supplements. But how do people know what the best supplements are for them? They can ask a doctor, but the doctor might miss some information and excluding procedures or tests, you’ll have to pay an average of $80-$170 across the U.S and india for a doctor's visit. 
 
-That is why we are introducing **Vital**, an **AI powered recommender for dietary supplements.**
+That is why we are introducing **Metabix**, an **AI powered recommender for dietary supplements.**
 
 ## What it does
 Vital uses users' personal physical information including their age, gender, allergies, and a text input where they write how they specifically want to improve their health. After entering those information, the users' information will be used to generate a list of the top recommended dietary supplement to take. This will help users save time, money, and confusion from spending time searching for which supplements to buy. The user will be able to enter new information to get supplement recommendations for different reasons and conditions.
@@ -19,7 +19,7 @@ One of the biggest challenges we faced was connecting the output of python files
 ## What we learned
 We learned that it is possible to fetch data from a python file using a node and express backend server. Although flask may be more appropriate to use in that situation, we were able to leverage the skills and knowledge we already have about node and express to create our project with a tech stack we are already familiar with.
 
-## What's next for Vital
+## What's next for Metabix
 Vital will be further refined by training our ML model with better data and adding more features to the web app such as using more personal information to increase the accuracy of the recommendations.
 
 ## Snapshots

@@ -73,7 +73,7 @@ const Recommendation = () => {
                 {recList.length === 0 ? (
                     <>
                         <h1 className='loading_title'>Collecting results...</h1>
-                        <p className='loading_subtext'>(This may take up to 10 seconds)</p>
+                        <p className='loading_subtext'>(This may take up to 30 minutes)</p>
                         <Loader />
                     </>
                 ) : (
