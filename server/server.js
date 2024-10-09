@@ -1,10 +1,13 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-
 const { exec } = require('child_process');
+const express = require('express');
+const cors = require('cors');
+
 
 const app = require("./app");
-
+app.use(express.json()); 
+app.use(cors());
 // IMPORTED ROUTES
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
@@ -21,12 +24,20 @@ app.use("/api/questions", questionRoutes);
 app.get('/run-python/:age/:description', (req, res) => {
   // Execute the Python script
   let { age, description } = req.params;
-  // let age = "true";
-  // const description = "My eyes feel dry.";
-  age = age.charAt(0).toUpperCase() + age.slice(1);
-  // const command = `python check.py ${age} "Vega" False "${description}"`;
-  // const description = "My bones feel weak.";
-  exec(`python check.py ${age} "Vega" False "${description}" "fish"`, {maxBuffer: undefined}, (error, stdout, stderr) => {
+
+  // Validate and convert age to integer
+  let ageInt;
+  try {
+    ageInt = parseInt(age, 10);
+    if (isNaN(ageInt)) {
+      return res.status(400).json({ error: 'Age must be a valid integer.' });
+    }
+  } catch (error) {
+    return res.status(400).json({ error: 'Invalid age parameter.' });
+  }
+
+  // Execute the Python script with age and description
+  exec(`python check.py ${ageInt} "Vega" False "${description}" "fish"`, { maxBuffer: undefined }, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing Python script: ${error}`);
       return res.status(501).json({ error: 'Description is not specific enough, hence, no detection.' });
@@ -46,7 +57,7 @@ app.get('/run-python/:age/:description', (req, res) => {
 // MONGOOSE SETUP
 const PORT = process.env.PORT || 3001;
 mongoose
-  .connect(process.env.MONGO_URL, {})
+  .connect('mongodb+srv://abhishekgajananraut:Abhishek007@cluster0.1ddax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {})
   .then(() => {
     if (process.env.NODE_ENV !== "test") {
       app.listen(PORT, () => console.log(`Server Port: ${PORT}`));

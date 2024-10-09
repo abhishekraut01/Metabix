@@ -3,7 +3,7 @@ import "./Register.css"
 import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { SHA256, enc } from "crypto-js";
+// import { SHA256, enc } from "crypto-js";
 import Lottie from "lottie-react";
 import { createUserAPIMethod, loginUserAPIMethod } from "../../api/auth";
 import { useDispatch } from "react-redux";

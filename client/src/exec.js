@@ -1,7 +1,4 @@
-// const { PythonShell } = require("python-shell");
-// let options = {
-//     scriptPath : "/Users/hyojong/Documents/_SUNY 2024 Spring/HACKATHON/"
-// };
+
 
 // PythonShell.run("check.py", options, (err,res) => {
 //     if(err)console.log(err)

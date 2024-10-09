@@ -16,7 +16,7 @@ const login = async (req, res) => {
       const isMatch = await bcrypt.compare(password, existingUser.password);
       if (!isMatch) return res.status(400).json({ msg: "Invalid credentials. " });
 
-      const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET);
+      const token = jwt.sign({ id: existingUser._id }, 'dkjaskfhwerhfwehrfkjhdkhskjdfhkashdfkshdfkhsdkfhkasdkd');
 
       // make sure the password not send back to the frontend
       const { password: hashedPassword, ...user } = existingUser._doc;

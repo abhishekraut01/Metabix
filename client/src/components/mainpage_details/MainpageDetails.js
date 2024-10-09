@@ -5,44 +5,33 @@ import { useParams } from 'react-router-dom';
 import { getQuestionById } from '../../api/question';
 import { pdfjs } from 'react-pdf';
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.js',
-    import.meta.url,
-).toString();
+// Setting the worker path for PDF.js
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const MainpageDetails = () => {
     const { postId } = useParams();
     const [question, setQuestion] = useState(null);
-    const [test, setTest] = useState(null);
 
-    // make an api call using the postId and map over the questions array
-
+    // Function to convert the original URL to a new format for PDF embedding
     function convertToNewUrl(originalUrl) {
         const prefix = 'https://dsld.od.nih.gov/label/';
         const suffix = '.pdf';
         const id = originalUrl.substring(prefix.length);
-
         return `https://api.ods.od.nih.gov/dsld/s3/pdf/${id}${suffix}`;
     }
 
     useEffect(() => {
         const fetchQuestion = async () => {
-            getQuestionById(postId).then(res => res.json()).then(data => setQuestion(data));
-
+            try {
+                const res = await getQuestionById(postId);
+                const data = await res.json();
+                setQuestion(data);
+            } catch (error) {
+                console.error('Error fetching question:', error);
+            }
         };
         fetchQuestion();
-    }, [])
-
-    // const [shouldReload, setShouldReload] = useState(true);
-
-    // useEffect(() => {
-    //     if (shouldReload) {
-    //         // Reload the page when the component mounts
-    //         window.location.reload();
-    //         // Set shouldReload to false to prevent continuous reloads
-    //         setShouldReload(false);
-    //     }
-    // }, [shouldReload]);
+    }, [postId]);
 
     return (
         <div className='mainpage_details'>
@@ -53,8 +42,8 @@ const MainpageDetails = () => {
                         <h1>Recommendations ({question.rec_list.length})</h1>
                     </div>
                     <div className='mainpage_details_container'>
-                        {question.rec_list.map((d) => (
-                            <div className='mainpage_details_inner'>
+                        {question.rec_list.map((d, index) => (
+                            <div key={index} className='mainpage_details_inner'>
                                 <div className='mainpage_details_object'>
                                     <embed src={convertToNewUrl(d[0])} type="application/pdf" width="100%" height="100%" />
                                 </div>
@@ -67,10 +56,8 @@ const MainpageDetails = () => {
                     </div>
                 </>
             )}
-
-
         </div>
-    )
-}
+    );
+};
 
 export default MainpageDetails;
