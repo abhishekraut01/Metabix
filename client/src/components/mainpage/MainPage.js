@@ -19,140 +19,11 @@ const MainPage = () => {
             .then(data => {
                 setRecords(data);
             })
-    }, []);
+    }, [userId]);
 
     console.log("records: ", records); // --> questionare records created by the current logged in user
 
-    const data = [
-        {
-            user_id: "1",
-            post_id: 1,
-            gender: "male",
-            age: true,
-            allergies: "tylenol",
-            description: "I want to improve my skin rash"
-        },
-        {
-            user_id: "2",
-            post_id: 2,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 3,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 4,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 5,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 6,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 7,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 8,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 9,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 10,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 11,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 12,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 13,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 14,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 15,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        },
-        {
-            user_id: "2",
-            post_id: 16,
-            gender: "female",
-            age: false,
-            allergies: "vitamin c",
-            description: "I want stronger bones"
-        }
-    ];
+   
     return (
         <div className='mainpage'>
             <Navbar />
@@ -164,7 +35,7 @@ const MainPage = () => {
                 {console.log("records: ", records)}
                 {records.map((d) => (
                     <div className='mainpage_form_data' onClick={() => navigate(`/mainpagedetails/${d._id}`)}>
-                        <img src={logo2} />
+                        <img src={logo2} alt='img'/>
                         <div className="mainpage_form_description">
                             Query: {d.description}
                         </div>

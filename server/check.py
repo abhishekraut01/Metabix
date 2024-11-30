@@ -46,6 +46,14 @@ def main():
     sup_merged = pd.concat([sup_1, sup_2], ignore_index=True, sort=False)
     prover_merged = pd.concat([prover_1, prover_2], ignore_index=True, sort=False)
     othing_merged = pd.concat([othing_1, othing_2], ignore_index=True, sort=False)
+    print(prover_merged.head())
+    print(sup_merged.head())
+    print(prover_merged.columns)
+    print(sup_merged.columns)
+    print(prover_merged.dtypes)
+    print(sup_merged.dtypes)
+
+
 
     full_merged = pd.merge(prover_merged, sup_merged, how="right", on=["URL", "DSLD ID", "Product Name"])
     full_merged = pd.merge(full_merged, othing_merged, how="right", on=["URL", "DSLD ID", "Product Name"])

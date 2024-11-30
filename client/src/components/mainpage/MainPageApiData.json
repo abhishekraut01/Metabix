@@ -1,0 +1,202 @@
+[
+    {
+        "_id": "1",
+        "userId": "123",
+        "description": "Query about supplements for weight loss"
+    },
+    {
+        "_id": "2",
+        "userId": "124",
+        "description": "Query about supplements for muscle gain"
+    },
+    {
+        "_id": "3",
+        "userId": "123",
+        "description": "Query about multivitamins for daily use"
+    },
+    {
+        "_id": "4",
+        "userId": "125",
+        "description": "Query about dietary fiber supplements"
+    },
+    {
+        "_id": "5",
+        "userId": "126",
+        "description": "Query about supplements for energy boost"
+    },
+    {
+        "_id": "6",
+        "userId": "123",
+        "description": "Query about supplements for immunity"
+    },
+    {
+        "_id": "7",
+        "userId": "127",
+        "description": "Query about prenatal vitamins for pregnancy"
+    },
+    {
+        "_id": "8",
+        "userId": "124",
+        "description": "Query about supplements for stress relief"
+    },
+    {
+        "_id": "9",
+        "userId": "123",
+        "description": "Query about vegan protein powders"
+    },
+    {
+        "_id": "10",
+        "userId": "126",
+        "description": "Query about supplements for joint health"
+    },
+    {
+        "_id": "11",
+        "userId": "128",
+        "description": "Query about omega-3 fish oil"
+    },
+    {
+        "_id": "12",
+        "userId": "129",
+        "description": "Query about calcium and vitamin D supplements"
+    },
+    {
+        "_id": "13",
+        "userId": "123",
+        "description": "Query about probiotics for gut health"
+    },
+    {
+        "_id": "14",
+        "userId": "124",
+        "description": "Query about post-workout recovery drinks"
+    },
+    {
+        "_id": "15",
+        "userId": "130",
+        "description": "Query about herbal teas for relaxation"
+    },
+    {
+        "_id": "16",
+        "userId": "123",
+        "description": "Query about supplements for mental focus"
+    },
+    {
+        "_id": "17",
+        "userId": "131",
+        "description": "Query about supplements for skin health"
+    },
+    {
+        "_id": "18",
+        "userId": "132",
+        "description": "Query about hair growth vitamins"
+    },
+    {
+        "_id": "19",
+        "userId": "123",
+        "description": "Query about supplements for better sleep"
+    },
+    {
+        "_id": "20",
+        "userId": "133",
+        "description": "Query about supplements for menopause"
+    },
+    {
+        "_id": "21",
+        "userId": "124",
+        "description": "Query about whey protein for athletes"
+    },
+    {
+        "_id": "22",
+        "userId": "134",
+        "description": "Query about anti-aging supplements"
+    },
+    {
+        "_id": "23",
+        "userId": "123",
+        "description": "Query about collagen for joint and skin health"
+    },
+    {
+        "_id": "24",
+        "userId": "135",
+        "description": "Query about detox supplements"
+    },
+    {
+        "_id": "25",
+        "userId": "136",
+        "description": "Query about plant-based iron supplements"
+    },
+    {
+        "_id": "26",
+        "userId": "124",
+        "description": "Query about pre-workout energy boosters"
+    },
+    {
+        "_id": "27",
+        "userId": "137",
+        "description": "Query about adaptogens for stress management"
+    },
+    {
+        "_id": "28",
+        "userId": "123",
+        "description": "Query about magnesium supplements for muscle cramps"
+    },
+    {
+        "_id": "29",
+        "userId": "138",
+        "description": "Query about supplements for eye health"
+    },
+    {
+        "_id": "30",
+        "userId": "139",
+        "description": "Query about plant-based omega-3 sources"
+    },
+    {
+        "_id": "31",
+        "userId": "123",
+        "description": "Query about supplements for cardiovascular health"
+    },
+    {
+        "_id": "32",
+        "userId": "140",
+        "description": "Query about vitamin C for immune support"
+    },
+    {
+        "_id": "33",
+        "userId": "124",
+        "description": "Query about branched-chain amino acids (BCAAs)"
+    },
+    {
+        "_id": "34",
+        "userId": "141",
+        "description": "Query about natural weight management solutions"
+    },
+    {
+        "_id": "35",
+        "userId": "123",
+        "description": "Query about supplements for bone density"
+    },
+    {
+        "_id": "36",
+        "userId": "142",
+        "description": "Query about natural mood boosters"
+    },
+    {
+        "_id": "37",
+        "userId": "143",
+        "description": "Query about natural anti-inflammatory supplements"
+    },
+    {
+        "_id": "38",
+        "userId": "124",
+        "description": "Query about supplements for liver detox"
+    },
+    {
+        "_id": "39",
+        "userId": "144",
+        "description": "Query about supplements for diabetes management"
+    },
+    {
+        "_id": "40",
+        "userId": "123",
+        "description": "Query about supplements for general wellness"
+    }
+]

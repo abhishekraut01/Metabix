@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { exec } = require('child_process');
 const express = require('express');
 const cors = require('cors');
+const { spawn } = require('child_process');
 
 
 const app = require("./app");
@@ -22,7 +23,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/questions", questionRoutes);
 
 app.get('/run-python/:age/:description', (req, res) => {
-  // Execute the Python script
   let { age, description } = req.params;
 
   // Validate and convert age to integer
@@ -36,24 +36,45 @@ app.get('/run-python/:age/:description', (req, res) => {
     return res.status(400).json({ error: 'Invalid age parameter.' });
   }
 
-  // Execute the Python script with age and description
-  exec(`python check.py ${ageInt} "Vega" False "${description}" "fish"`, { maxBuffer: undefined }, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error executing Python script: ${error}`);
-      return res.status(501).json({ error: 'Description is not specific enough, hence, no detection.' });
+  // Run the Python script with arguments (age, description)
+  const pythonProcess = spawn('python3', [
+    'path/to/your/script.py', 
+    ageInt.toString(), 
+    "Vega", // This could be replaced with the actual brand if dynamic
+    "False", 
+    description, 
+    "fish" // Example allergy input, could be dynamic too
+  ]);
+
+  let output = '';
+  let errorOutput = '';
+
+  // Collect the stdout
+  pythonProcess.stdout.on('data', (data) => {
+    output += data.toString();
+  });
+
+  // Collect the stderr
+  pythonProcess.stderr.on('data', (data) => {
+    errorOutput += data.toString();
+  });
+
+  // On close, parse the output
+  pythonProcess.on('close', (code) => {
+    if (code !== 0) {
+      console.error(`Python script failed with error: ${errorOutput}`);
+      return res.status(500).json({ error: 'Error executing Python script' });
     }
 
-    // Assuming the Python script prints a JSON result to stdout
     try {
-      const result = JSON.parse(stdout);
+      const result = JSON.parse(output); // Assuming JSON output
       res.json(result);
     } catch (parseError) {
       console.error(`Error parsing Python script output: ${parseError}`);
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: 'Error parsing Python response' });
     }
   });
 });
-
 // MONGOOSE SETUP
 const PORT = process.env.PORT || 3001;
 mongoose
